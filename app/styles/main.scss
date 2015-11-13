@@ -4,6 +4,12 @@ $icon-font-path: "../bower_components/bootstrap-sass/assets/fonts/bootstrap/";
 @import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 // endbower
 
+$header-height: 40px;
+
+$color-dark: #111;
+$color-light-grey: #eee;
+$color-light: #fff;
+
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
@@ -13,7 +19,7 @@ $icon-font-path: "../bower_components/bootstrap-sass/assets/fonts/bootstrap/";
 
 /* Space out content a bit */
 body {
-  // padding-top: 20px;
+  font-family: Arial,"Helvetica Neue",Helvetica,sans-serif;
   padding-bottom: 20px;
 }
 
@@ -31,17 +37,45 @@ body {
 }
 
 /* Custom page header */
-.header {
-  border-bottom: 1px solid black;
+.navbar {
+  border-bottom: 2px solid $color-dark;
+  margin-bottom: 0;
+  background-color: $color-light;
+  min-height: $header-height;
+  padding: 0 15px;
 
-  /* Make the masthead heading the same height as the navigation */
-  h3 {
-    margin-top: 0;
-    margin-bottom: 0;
-    line-height: 40px;
-    padding: 0 15px;
-    // padding-bottom: 19px;
+  .navbar-brand {
+    padding: 5px 0 0 15px;
+    margin: 0;
+    display: block;
+    color: $color-dark;
+    font-size: 24px;
+    height: $header-height;
+    line-height: $header-height;
+    font-weight: bold;
   }
+}
+
+.nav > li {
+  > a {
+    color: $color-dark;
+    &:hover, &:focus {
+      background-color: $color-light-grey;
+    }
+  }
+  &.active > a {
+    background-color: $color-dark;
+    color: $color-light;
+    font-weight: bold;
+  }
+}
+
+.navbar-toggle .icon-bar {
+  background-color: #888;
+}
+
+.main-content {
+  margin-top: $header-height;
 }
 
 /* Custom page footer */
@@ -72,6 +106,8 @@ body {
     margin-top: 28px;
   }
 }
+
+
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
